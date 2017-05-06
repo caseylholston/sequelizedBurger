@@ -1,0 +1,14 @@
+ul {
+    list-style-image: url('../img/burger_icon.png');
+
+}
+
+.container {
+    background-color:#e7a837;
+}
+
+.jumbotron, body {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Permanent Marker', cursive;
+}
+
