@@ -9,7 +9,7 @@ router.get("/", function(req, res) {
     var hbsObject = {
       burger: data
     };
-    //console.log("From the router"+hbsObject);
+    //console.log("From the router");
     res.render("index", hbsObject);
   });
 });
@@ -29,7 +29,7 @@ router.put("/:id", function(req, res) {
   console.log("condition", condition);
 
   burger.update({
-    sleepy: req.body.sleepy
+    devoured: req.body.devour
   }, condition, function() {
     res.redirect("/");
   });

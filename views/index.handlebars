@@ -1,43 +1,101 @@
-<h1>Burgers</h1>
+<!-- Captain Planet Game HTML -->
 
-<h2>Burgers to Devour</h2>
+<!DOCTYPE html>
 
-<ul>
-  {{#each burger}}
-    {{#unless this.devoured}}
-      <li>
-        {{this.burger_name}}
+<html lang="en-us">
 
-        <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devour" value="true">
-          <button type="submit">Devour It!</button>
-        </form>
+  <head>
 
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
+    <meta charset="UTF-8">
+    <title>Burgers for Days</title>
 
-<h2>Burgers that have been devoured</h2>
+    <!-- Bootstrap File -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<ul>
-  {{#each burgers}}
-    {{#if this.devoured}}
-      <li>
-        {{this.burger_name}}
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
 
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
+  </head>
 
-<h2>Add a Burger</h2>
-<form class="create-update-form" action="/" method="POST">
+<body>
 
-  <div class="form-group">
-    <label for="burger">Add a Burger to Devour:</label>
-    <input type="text" id="burger" name="burger_name">
-  </div>
+    <!-- Overall Bootstrap Grid -->
+<div class="container">
 
-  <button type="submit">Make the Burger!</button>
-</form>
+      <!-- Jumbotron with Title -->
+      <div class="jumbotron">
+        <h1 class="text-center"><strong>Burgers for Days</strong></h1>
+        <hr>
+      </div>
+      <div class="row">
+
+        <!-- Left Panel -->
+        <div class="col-lg-4">
+
+          <!-- This is the menu-->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Burgers to Devour</h2>
+            </div>
+            <div class="panel-body">
+              <ul>
+                {{#each burger}}
+                  {{#unless this.devoured}}
+                    <li>
+                      {{this.burger_name}}
+
+                      <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <input type="hidden" name="devour" value="true">
+                        <button type="submit">Devour It!</button>
+                      </form>
+
+                    </li>
+                  {{/unless}}
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle Panel -->
+        <div class="col-lg-4">
+<!-- These have been eaten -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Burgers that have been devoured</h2>
+            </div>
+            <div class="panel-body">
+              <ul>
+                {{#each burger}}
+                  {{#if this.devoured}}
+                    <li>
+                      {{this.burger_name}}
+
+                    </li>
+                  {{/if}}
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="col-lg-4">
+<!-- These have been eaten -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Add a Burger</h2>
+            </div>
+            <div class="panel-body">
+              <form class="create-update-form" action="/" method="POST">
+
+                <div class="form-group">
+                  <label for="burger">Add a Burger to Devour:</label>
+                  <input type="text" id="burger" name="burger_name">
+                </div>
+
+                <button type="submit">Make the Burger!</button>
+              </form>
+            </div>
+          </div>
+        </div>
