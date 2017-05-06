@@ -9,17 +9,16 @@ router.get("/", function(req, res) {
     var hbsObject = {
       burger: data
     };
-    console.log("From the router"+hbsObject);
+    //console.log("From the router"+hbsObject);
     res.render("index", hbsObject);
   });
 });
 
 router.post("/", function(req, res) {
+    console.log(req.body);
   burger.insert([
-    "name", "sleepy"
-  ], [
-    req.body.name, req.body.sleepy
-  ], function() {
+    "burger_name"], [
+    req.body.burger_name], function() {
     res.redirect("/");
   });
 });

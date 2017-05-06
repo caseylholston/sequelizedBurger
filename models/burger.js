@@ -14,8 +14,8 @@ var burger = {
       cb(res);
     });
   },
-  insert: function(condition, cb) {
-    orm.insertOne("burgers", condition, function(res) {
+  insert: function(cols, vals, cb) {
+    orm.insertOne("burgers", cols, vals, function(res) {
       cb(res);
     });
   }

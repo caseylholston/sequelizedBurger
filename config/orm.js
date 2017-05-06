@@ -55,7 +55,7 @@ var orm = {
       cb(result);
     });
   },
-  //Need to confirm how this will work
+
   updateOne: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
