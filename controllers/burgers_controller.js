@@ -5,9 +5,9 @@ var db = require('../models');
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  db.burger_sqlzd.findAll({include: [db.Creator]}).then(function(dbBurger) {
+  db.Burger.findAll({include: [db.Creator]}).then(function(dbBurger) {
     var hbsObject = {
-      burger: data
+      burger: dbBurger
     };
     //console.log("From the router");
     res.render("index", hbsObject);
