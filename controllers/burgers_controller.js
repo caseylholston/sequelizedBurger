@@ -1,11 +1,11 @@
 var express = require("express");
 var router = express.Router();
-var burger = require('../models/burger.js');
+var db = require('../models');
 
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  burger.all(function(data) {
+  db.burger_sqlzd.findAll({include: [db.Creator]}).then(function(dbBurger) {
     var hbsObject = {
       burger: data
     };
