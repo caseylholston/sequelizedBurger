@@ -6,23 +6,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     devoured: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
       defaultValue: false
     }
-  },
-    {
-      // We're saying that we want our Burger to have a Creator
-      classMethods: {
-        associate: function(models) {
-          // An Author (foreignKey) is required or a Post can't be made
-          Burger.belongsTo(models.Creator, {
-            foreignKey: {
-              allowNull: false
-            }
-          });
-        }
-      }
-    }
+  }
   );
   return Burger;
 };

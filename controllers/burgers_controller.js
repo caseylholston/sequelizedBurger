@@ -5,7 +5,7 @@ var db = require('../models');
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  db.Burger.findAll({include: [db.Creator]}).then(function(dbBurger) {
+  db.Burger.findAll({}).then(function(dbBurger) {
     var hbsObject = {
       burger: dbBurger
     };
@@ -16,24 +16,23 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
     console.log(req.body);
-  burger.insert([
-    "burger_name"], [
-    req.body.burger_name], function() {
+        db.Burger.create({
+            burger_name: req.body.burger_name,
+            devoured: false
+        }).then(function(dbBurger){
     res.redirect("/");
   });
 });
 
 router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
-
-  burger.update({
-    devoured: req.body.devour
-  }, condition, function() {
-    res.redirect("/");
-  });
-});
+        db.Burger.update({
+            devoured: true
+          }, 
+            {where: {
+              id: req.params.id}}).then(function(dbBurger){
+            res.redirect('/');
+        });
+    });
 
 // Export routes for server.js to use.
 module.exports = router;
